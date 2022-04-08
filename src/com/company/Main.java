@@ -20,18 +20,23 @@ public class Main {
         System.out.println(Lazy);
         if (endGame == startGame) {
             while (numTries <= 6) {
-                int guess = Integer.valueOf(userInput.nextLine());
-                if (guess > randomInt) {
-                    System.out.println("Your guess is too high.");
-                    System.out.println(Lazy);
-                    numTries++;
-                } else if (guess < randomInt) {
-                    System.out.println("Your guess is too low.");
-                    System.out.println(Lazy);
-                    numTries++;
-                } else {
-                    System.out.println("Good job, " + UserName + "! You guessed my number in " + numTries + " guesses! " + randomInt);
-                    break;
+                try {
+                    int guess = Integer.parseInt(userInput.nextLine());
+                    if (guess > randomInt) {
+                        System.out.println("Your guess is too high.");
+                        System.out.println(Lazy);
+                        numTries++;
+                    } else if (guess < randomInt) {
+                        System.out.println("Your guess is too low.");
+                        System.out.println(Lazy);
+                        numTries++;
+                    } else {
+                        System.out.println("Good job, " + UserName + "! You guessed my number in " + numTries + " guesses!");
+                        break;
+                    }
+                }
+                catch (NumberFormatException e) {
+                    System.out.println("Numbers only please");
                 }
 
             }
